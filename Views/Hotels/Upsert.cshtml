@@ -1,0 +1,70 @@
+﻿@model HotelListMVC.Models.Hotel
+
+<br />
+<h2 class="text-info">@(Model.Id!=0 ? "Edit" : "Create") Hotel</h2>
+<br />
+
+<div class="border container" style="padding:30px;">
+    <form method="post">
+        @if(Model.Id != 0)
+        {
+            <input type="hidden" asp-for="Id" />
+        }
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+        <div class="form-group row">
+            <div class ="col-3">
+                <label asp-for="Name"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Name"  class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class ="col-3">
+                <label asp-for="Country"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Country"  class="form-control" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class ="col-3">
+                <label asp-for="Address"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Address"  class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class ="col-3">
+                <label asp-for="Rating"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Rating"  class="form-control" />
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+        </div>
+
+           <div class="form-group row">
+            <div class ="col-3 offset-3">
+                <button type="submit" class="btn btn-primary form-control">
+                    @(Model.Id!=0 ? "Edit" : "Create")
+                </button>
+            </div>
+            <div class="col-3">
+                <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
